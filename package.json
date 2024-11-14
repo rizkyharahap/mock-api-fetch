@@ -1,0 +1,46 @@
+{
+  "name": "mock-fetch",
+  "version": "0.0.1",
+  "author": "Rizki Harahap",
+  "license": "MIT",
+  "main": "./dist/mock-fetch.cjs.js",
+  "module": "./dist/mock-fetch.es.js",
+  "types": "./dist/types/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/mock-fetch.es.js",
+      "require": "./dist/mock-fetch.cjs.js"
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "sideEffects": false,
+  "keywords": [
+    "vite",
+    "typescript",
+    "library",
+    "mock",
+    "fetch",
+    "mock-fetch"
+  ],
+  "scripts": {
+    "build": "node build.js",
+    "test": "jest",
+    "test:watch": "jest --watch --coverage"
+  },
+  "devDependencies": {
+    "@types/jest": "^29.5.14",
+    "@types/node": "^22.9.0",
+    "esbuild": "^0.24.0",
+    "esbuild-jest": "^0.5.0",
+    "jest": "^29.7.0",
+    "ts-jest": "^29.2.5",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.6.3"
+  },
+  "packageManager": "pnpm@9.13.0",
+  "engines": {
+    "node": ">=20.17.0"
+  }
+}
