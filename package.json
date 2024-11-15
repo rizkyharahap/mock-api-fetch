@@ -1,11 +1,11 @@
 {
   "name": "unready-fetch",
   "description": "Mock fetch API call simulation before real API are ready.",
-  "version": "0.0.12",
+  "version": "0.0.13",
   "author": "Rizki Harahap",
   "license": "MIT",
   "exports": {
-    "." : {
+    ".": {
       "import": {
         "types": "./dist/esm/index.d.ts",
         "default": "./dist/esm/index.js"
@@ -16,11 +16,9 @@
       }
     }
   },
-
-	"main": "./dist/cjs/index.js",
-	"module": "./dist/esm/index.js",
-	"types": "./dist/esm/index.d.ts",
-
+  "main": "./dist/cjs/index.js",
+  "module": "./dist/esm/index.js",
+  "types": "./dist/esm/index.d.ts",
   "files": [
     "dist"
   ],
