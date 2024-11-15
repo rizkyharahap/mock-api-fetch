@@ -1,3 +1,12 @@
+## [0.0.6](https://github.com/rizkyharahap/mock-fetch/compare/v0.0.5...v0.0.6) (2024-11-15)
+
+
+### Bug Fixes
+
+* remove set env information ([1137ac8](https://github.com/rizkyharahap/mock-fetch/commit/1137ac896843e4e4b0b7a574d27d5a2dc7857a2b))
+
+
+
 ## [0.0.5](https://github.com/rizkyharahap/mock-fetch/compare/v0.0.4...v0.0.5) (2024-11-15)
 
 
