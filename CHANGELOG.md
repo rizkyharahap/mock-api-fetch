@@ -1,3 +1,12 @@
+## [0.0.10](https://github.com/rizkyharahap/mock-fetch/compare/v0.0.9...v0.0.10) (2024-11-15)
+
+
+### Bug Fixes
+
+* add auth npm ([cf97d3a](https://github.com/rizkyharahap/mock-fetch/commit/cf97d3a4c25b030eaa1b8a5fc463d2d2d3b8e46a))
+
+
+
 ## [0.0.9](https://github.com/rizkyharahap/mock-fetch/compare/v0.0.8...v0.0.9) (2024-11-15)
 
 
@@ -31,15 +40,6 @@
 ### Bug Fixes
 
 * remove set env information ([1137ac8](https://github.com/rizkyharahap/mock-fetch/commit/1137ac896843e4e4b0b7a574d27d5a2dc7857a2b))
-
-
-
-## [0.0.5](https://github.com/rizkyharahap/mock-fetch/compare/v0.0.4...v0.0.5) (2024-11-15)
-
-
-### Bug Fixes
-
-* env fail ([33e86fa](https://github.com/rizkyharahap/mock-fetch/commit/33e86fac3fbd048e2f583be0fba0d61eb9243344))
 
 
 
