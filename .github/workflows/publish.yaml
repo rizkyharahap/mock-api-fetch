@@ -34,7 +34,7 @@ jobs:
       - name: Build
         run: pnpm build
 
-      - name: Publish package on NPM
-        run: pnpm publish --tag latest
+      - name: Publish package to npm using npm
+        run: npm publish --access public
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
