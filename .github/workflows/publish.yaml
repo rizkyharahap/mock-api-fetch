@@ -13,6 +13,11 @@ jobs:
         with:
           fetch-depth: 0 # Ensure we have full history to handle tags
 
+      - name: Ensure we're on the correct tag
+        run: |
+          # Check out the tag explicitly
+          git checkout tags/${GITHUB_REF##*/}  # Use the release tag reference
+
       - name: Setup PNPM
         uses: pnpm/action-setup@v4
         with:
