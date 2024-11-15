@@ -16,6 +16,9 @@ describe("Not Ready Fetch", () => {
       },
       errors: null,
     });
+    expect(await response.text()).toEqual(
+      '{"status":"success","code":200,"data":{"id":123,"name":"Sample Data"},"errors":null}'
+    );
   });
 
   test("Return success value with custom success data", async () => {
@@ -70,6 +73,9 @@ describe("Not Ready Fetch", () => {
       ],
       trace_id: "abc123xyz",
     });
+    expect(await response.text()).toEqual(
+      '{"status":"error","code":400,"data":null,"errors":[{"field":"email","message":"Email is required"}],"trace_id":"abc123xyz"}'
+    );
   });
 
   test("Return error if only asigned error", async () => {

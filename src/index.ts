@@ -9,6 +9,7 @@ export interface MockResponse {
   ok: boolean;
   status: number;
   json(): Promise<any>;
+  text(): Promise<string>;
 }
 
 const defaultSuccessResponse = {
@@ -46,12 +47,17 @@ export function unreadyFetch(
     );
 
     setTimeout(() => {
+      let data = mock?.success ?? defaultSuccessResponse;
+
       const response: MockResponse = {
         url: input.toString(),
         ok: true,
         status: mock?.status ?? 200,
         async json() {
-          return Promise.resolve(mock?.success ?? defaultSuccessResponse);
+          return Promise.resolve(data);
+        },
+        async text() {
+          return Promise.resolve(JSON.stringify(data));
         },
       };
 
@@ -59,10 +65,12 @@ export function unreadyFetch(
         (mock?.status && mock.status >= 400) ||
         (!mock?.success && !!mock?.error)
       ) {
+        data = mock?.error ?? defaultErrorResponse;
+
         response.ok = false;
         response.status = mock?.status ?? 400;
-        response.json = () =>
-          Promise.resolve(mock?.error ?? defaultErrorResponse);
+        response.json = () => Promise.resolve(data);
+        response.text = () => Promise.resolve(JSON.stringify(data));
       }
 
       return resolve(response);
