@@ -91,8 +91,6 @@ export function unreadyFetch(
 
         response.ok = false;
         response.status = mock?.status ?? 400;
-        response.json = () => Promise.resolve(data);
-        response.text = () => Promise.resolve(JSON.stringify(data));
       }
 
       return resolve(response);
