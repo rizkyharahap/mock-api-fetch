@@ -6,7 +6,7 @@ on:
       - master
 
 jobs:
-  changelog:
+  release:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -21,7 +21,7 @@ jobs:
       - name: Set release information
         id: set-release-info
         run: |
-          if [ -z "${{ steps.changelog.outputs.clean_changelog }}" ]; then
+          if [ "${{ steps.changelog.outputs.skipped }}" == "true" ]; then
             echo "No changelog found. Using GitHub ref for release details."
             echo "tag_name=${GITHUB_REF##*/}" >> $GITHUB_ENV
             echo "release_name=${GITHUB_REF##*/}" >> $GITHUB_ENV
