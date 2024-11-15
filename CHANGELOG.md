@@ -1,3 +1,14 @@
+# [0.1.0](https://github.com/rizkyharahap/unready-fetch/compare/v0.0.13...v0.1.0) (2024-11-15)
+
+
+### Features
+
+* add console warning for remind user its using unready-fetch not real fetch ([f242fc8](https://github.com/rizkyharahap/unready-fetch/commit/f242fc8a90d81f929d2e6900381e576bf68f2948))
+* add default response success and error ([2c2a271](https://github.com/rizkyharahap/unready-fetch/commit/2c2a2710df8cc0c92d61f96adf2a445967ce966a))
+* add function response.text() which returning string data ([7d6f6a1](https://github.com/rizkyharahap/unready-fetch/commit/7d6f6a19520716eb2bd0807f8cde9561f667bf88))
+
+
+
 ## [0.0.13](https://github.com/rizkyharahap/unready-fetch/compare/v0.0.12...v0.0.13) (2024-11-15)
 
 
@@ -31,15 +42,6 @@
 ### Bug Fixes
 
 * add auth npm ([cf97d3a](https://github.com/rizkyharahap/unready-fetch/commit/cf97d3a4c25b030eaa1b8a5fc463d2d2d3b8e46a))
-
-
-
-## [0.0.9](https://github.com/rizkyharahap/unready-fetch/compare/v0.0.8...v0.0.9) (2024-11-15)
-
-
-### Bug Fixes
-
-* cannot publishing to npm ([4342841](https://github.com/rizkyharahap/unready-fetch/commit/43428418c6ccad55e06346f01b48d2ac7cc9fe22))
 
 
 
