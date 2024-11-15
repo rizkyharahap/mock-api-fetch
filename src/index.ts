@@ -41,6 +41,10 @@ export function unreadyFetch(
   timout = 1000
 ): Promise<MockResponse> {
   return new Promise((resolve) => {
+    console.warn(
+      "Unready fetch used! Please change to real fetch after API is ready!"
+    );
+
     setTimeout(() => {
       const response: MockResponse = {
         url: input.toString(),
