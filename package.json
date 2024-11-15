@@ -25,7 +25,7 @@
     "mock-fetch"
   ],
   "scripts": {
-    "build": "node build.js",
+    "build": "rm -rf dist && node build.js",
     "test": "jest",
     "test:watch": "jest --watch --coverage"
   },
