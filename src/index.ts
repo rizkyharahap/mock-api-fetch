@@ -53,10 +53,10 @@ export function unreadyFetch(
         url: input.toString(),
         ok: true,
         status: mock?.status ?? 200,
-        async json() {
+        json() {
           return Promise.resolve(data);
         },
-        async text() {
+        text() {
           return Promise.resolve(JSON.stringify(data));
         },
       };
