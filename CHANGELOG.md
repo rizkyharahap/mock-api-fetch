@@ -1,3 +1,12 @@
+## [0.0.12](https://github.com/rizkyharahap/unready-fetch/compare/v0.0.11...v0.0.12) (2024-11-15)
+
+
+### Bug Fixes
+
+* build wrong export ([05df459](https://github.com/rizkyharahap/unready-fetch/commit/05df459942e31f6419000950074e15759721d783))
+
+
+
 ## [0.0.11](https://github.com/rizkyharahap/unready-fetch/compare/v0.0.10...v0.0.11) (2024-11-15)
 
 
@@ -31,15 +40,6 @@
 ### Bug Fixes
 
 * change tag to latest ([7db1284](https://github.com/rizkyharahap/unready-fetch/commit/7db128477a2812adbdde74bcc634347ae7bfe45b))
-
-
-
-## [0.0.7](https://github.com/rizkyharahap/unready-fetch/compare/v0.0.6...v0.0.7) (2024-11-15)
-
-
-### Bug Fixes
-
-* change tag to latest ([05d397a](https://github.com/rizkyharahap/unready-fetch/commit/05d397a0c96755c575232a86a0381452778a0ad8))
 
 
 
