@@ -11,7 +11,7 @@ export interface MockResponse {
   json(): Promise<any>;
 }
 
-export function mockFetch(
+export function unreadyFetch(
   input: RequestInfo | URL,
   init: RequestInit,
   mock: MockData,

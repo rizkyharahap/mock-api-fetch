@@ -1,15 +1,15 @@
 {
-  "name": "mock-fetch",
+  "name": "unready-fetch",
   "version": "0.0.9",
   "author": "Rizki Harahap",
   "license": "MIT",
-  "main": "./dist/mock-fetch.cjs.js",
-  "module": "./dist/mock-fetch.es.js",
+  "main": "./dist/unready-fetch.cjs.js",
+  "module": "./dist/unready-fetch.es.js",
   "types": "./dist/types/index.d.ts",
   "exports": {
     ".": {
-      "import": "./dist/mock-fetch.es.js",
-      "require": "./dist/mock-fetch.cjs.js"
+      "import": "./dist/unready-fetch.es.js",
+      "require": "./dist/unready-fetch.cjs.js"
     }
   },
   "files": [
@@ -22,7 +22,7 @@
     "library",
     "mock",
     "fetch",
-    "mock-fetch"
+    "unready-fetch"
   ],
   "scripts": {
     "build": "rm -rf dist && node build.js",

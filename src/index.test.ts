@@ -1,10 +1,10 @@
-import { mockFetch } from ".";
+import { unreadyFetch } from ".";
 
-describe("Mock Fetch", () => {
+describe("Not Ready Fetch", () => {
   test("Return success value", async () => {
     const successData = { data: { id: 1, name: "Test" } };
 
-    const response = await mockFetch(
+    const response = await unreadyFetch(
       "mock-url",
       { method: "GET" },
       {
@@ -21,7 +21,7 @@ describe("Mock Fetch", () => {
   test("Return success value with custom status", async () => {
     const successData = { data: { id: 1, name: "Test" } };
 
-    const response = await mockFetch(
+    const response = await unreadyFetch(
       "mock-url",
       { method: "GET" },
       {
@@ -37,7 +37,7 @@ describe("Mock Fetch", () => {
     const successData = { data: { id: 1, name: "Test" } };
     const errorData = { error: "Oops something when wrong !", code: 400 };
 
-    const response = await mockFetch(
+    const response = await unreadyFetch(
       "mock-url",
       { method: "GET" },
       {

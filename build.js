@@ -23,14 +23,14 @@ const sharedConfig = {
 esbuild.build({
   ...sharedConfig,
   format: "esm",
-  outfile: "dist/mock-fetch.esm.js",
+  outfile: "dist/unready-fetch.esm.js",
 });
 
 // Build CommonJS
 esbuild.build({
   ...sharedConfig,
   format: "cjs",
-  outfile: "dist/mock-fetch.cjs.js",
+  outfile: "dist/unready-fetch.cjs.js",
 });
 
 console.log("Build completed successfully!");
