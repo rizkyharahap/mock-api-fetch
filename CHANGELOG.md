@@ -1,3 +1,12 @@
+## [0.0.7](https://github.com/rizkyharahap/mock-fetch/compare/v0.0.6...v0.0.7) (2024-11-15)
+
+
+### Bug Fixes
+
+* change tag to latest ([05d397a](https://github.com/rizkyharahap/mock-fetch/commit/05d397a0c96755c575232a86a0381452778a0ad8))
+
+
+
 ## [0.0.6](https://github.com/rizkyharahap/mock-fetch/compare/v0.0.5...v0.0.6) (2024-11-15)
 
 
