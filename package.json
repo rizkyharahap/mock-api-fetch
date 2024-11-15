@@ -1,6 +1,6 @@
 {
   "name": "mock-fetch",
-  "version": "0.0.1",
+  "version": "0.0.3",
   "author": "Rizki Harahap",
   "license": "MIT",
   "main": "./dist/mock-fetch.cjs.js",
