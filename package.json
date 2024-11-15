@@ -1,6 +1,6 @@
 {
   "name": "unready-fetch",
-  "version": "0.0.10",
+  "version": "0.0.11",
   "author": "Rizki Harahap",
   "license": "MIT",
   "main": "./dist/unready-fetch.cjs.js",
