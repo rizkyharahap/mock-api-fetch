@@ -14,10 +14,10 @@ jobs:
 
       - name: Conventional Changelog Action
         id: changelog
-        uses: TriPSs/conventional-changelog-action@v3.7.1
+        uses: TriPSs/conventional-changelog-action@v5
         with:
           github-token: ${{ secrets.PA_TOKEN }}
-          version-file: "./package.json,./package-lock.json"
+          version-file: "./package.json,./pnpm-lock.yaml"
 
       - name: Create realease
         uses: actions/create-release@v1
