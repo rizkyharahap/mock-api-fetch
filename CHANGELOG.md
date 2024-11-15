@@ -1,3 +1,12 @@
+## [0.0.9](https://github.com/rizkyharahap/mock-fetch/compare/v0.0.8...v0.0.9) (2024-11-15)
+
+
+### Bug Fixes
+
+* cannot publishing to npm ([4342841](https://github.com/rizkyharahap/mock-fetch/commit/43428418c6ccad55e06346f01b48d2ac7cc9fe22))
+
+
+
 ## [0.0.8](https://github.com/rizkyharahap/mock-fetch/compare/v0.0.7...v0.0.8) (2024-11-15)
 
 
@@ -31,15 +40,6 @@
 ### Bug Fixes
 
 * env fail ([33e86fa](https://github.com/rizkyharahap/mock-fetch/commit/33e86fac3fbd048e2f583be0fba0d61eb9243344))
-
-
-
-## [0.0.4](https://github.com/rizkyharahap/mock-fetch/compare/d031e277647ae381b01973885ff67dbd7882d699...v0.0.4) (2024-11-15)
-
-
-### Bug Fixes
-
-* handling not found tag_name, release_name and body ([d031e27](https://github.com/rizkyharahap/mock-fetch/commit/d031e277647ae381b01973885ff67dbd7882d699))
 
 
 
