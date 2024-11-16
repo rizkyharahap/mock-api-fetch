@@ -30,7 +30,6 @@
     "unready-fetch",
     "API"
   ],
-  "type": "module",
   "packageManager": "pnpm@9.13.0",
   "engines": {
     "node": ">=20.17.0"
