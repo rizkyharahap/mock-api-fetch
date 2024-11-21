@@ -60,13 +60,13 @@ export function unreadyFetch(
   mock?: MockData,
   timout: number = 1000
 ): Promise<MockResponse> {
-  return new Promise((resolve) => {
+  return new Promise((resolve, reject) => {
     // Show warning to remind the real API not implemented
     console.warn(
       "Unready fetch used! Please change to real fetch after API is ready!"
     );
 
-    setTimeout(() => {
+    const timeoutId = setTimeout(() => {
       let data = mock?.success ?? defaultSuccessResponse;
 
       const response: MockResponse = {
@@ -95,5 +95,14 @@ export function unreadyFetch(
 
       return resolve(response);
     }, timout);
+
+    if (init?.signal) {
+      // listen event abort
+      init.signal.addEventListener("abort", () => {
+        // clear timeout and throw a signal reason
+        clearTimeout(timeoutId);
+        return reject(init.signal?.reason);
+      });
+    }
   });
 }

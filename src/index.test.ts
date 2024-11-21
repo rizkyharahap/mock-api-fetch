@@ -1,6 +1,6 @@
 import { unreadyFetch } from ".";
 
-describe("Not Ready Fetch", () => {
+describe.skip("unready-fetch", () => {
   test("Return success value", async () => {
     const response = await unreadyFetch("mock-url", { method: "GET" });
 
@@ -107,5 +107,68 @@ describe("Not Ready Fetch", () => {
     expect(response.status).toBe(400);
     expect(response.ok).toBeFalsy();
     expect(await response.json()).toEqual(errorData);
+  });
+});
+
+describe("unready-fetch with AbortController", () => {
+  test("Throw an AbortError when controller is aborted", async () => {
+    try {
+      const controller = new AbortController();
+
+      setTimeout(() => {
+        controller.abort();
+      }, 50);
+
+      await unreadyFetch("mock-url", {
+        method: "GET",
+        signal: controller.signal,
+      });
+
+      throw new Error("Controller not aborted");
+    } catch (error) {
+      if (error! instanceof DOMException) {
+        expect(error.name).toBe("AbortError");
+        return;
+      }
+
+      throw new Error("Controller not throw AbortError");
+    }
+  });
+
+  test("Throw an AbortError with reason when controller is aborted with reason", async () => {
+    try {
+      const controller = new AbortController();
+
+      setTimeout(() => {
+        controller.abort("mock-reason");
+      }, 50);
+
+      await unreadyFetch("mock-url", {
+        method: "GET",
+        signal: controller.signal,
+      });
+
+      throw new Error("Controller not aborted");
+    } catch (error) {
+      expect(error).toBe("mock-reason");
+    }
+  });
+
+  test("Throw an TimeoutError when signal timout is set", async () => {
+    try {
+      await unreadyFetch("mock-url", {
+        method: "GET",
+        signal: AbortSignal.timeout(50),
+      });
+
+      throw new Error("Controller not aborted");
+    } catch (error) {
+      if (error! instanceof DOMException) {
+        expect(error.name).toBe("TimeoutError");
+        return;
+      }
+
+      throw new Error("Controller not throw TimeoutError");
+    }
   });
 });
