@@ -1,6 +1,6 @@
-import { unreadyFetch } from ".";
+import { unreadyFetch } from "./unready-fetch";
 
-describe.skip("unready-fetch", () => {
+describe("unready-fetch", () => {
   test("Return success value", async () => {
     const response = await unreadyFetch("mock-url", { method: "GET" });
 
