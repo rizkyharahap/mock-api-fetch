@@ -1,3 +1,12 @@
+## [0.1.1](https://github.com/rizkyharahap/unready-fetch/compare/v0.1.0...v0.1.1) (2024-11-16)
+
+
+### Bug Fixes
+
+* **platform:** remove type module for supporting require environtment ([e123248](https://github.com/rizkyharahap/unready-fetch/commit/e12324869555ea8243cfd4194a1d26de0f45b6ae))
+
+
+
 # [0.1.0](https://github.com/rizkyharahap/unready-fetch/compare/v0.0.13...v0.1.0) (2024-11-15)
 
 
@@ -33,15 +42,6 @@
 ### Bug Fixes
 
 * change name ([17ffcf8](https://github.com/rizkyharahap/unready-fetch/commit/17ffcf86d22ad9441800def6ba610d1ad4b2f3e7))
-
-
-
-## [0.0.10](https://github.com/rizkyharahap/unready-fetch/compare/v0.0.9...v0.0.10) (2024-11-15)
-
-
-### Bug Fixes
-
-* add auth npm ([cf97d3a](https://github.com/rizkyharahap/unready-fetch/commit/cf97d3a4c25b030eaa1b8a5fc463d2d2d3b8e46a))
 
 
 
