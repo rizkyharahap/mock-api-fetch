@@ -2,7 +2,7 @@ import { unreadyFetch } from "./unready-fetch";
 
 describe("unready-fetch", () => {
   test("Return success value", async () => {
-    const response = await unreadyFetch("mock-url", { method: "GET" });
+    const response = await unreadyFetch()("mock-url", { method: "GET" });
 
     expect(response.url).toBe("mock-url");
     expect(response.ok).toBeTruthy();
@@ -24,13 +24,9 @@ describe("unready-fetch", () => {
   test("Return success value with custom success data", async () => {
     const successData = { data: { id: 1, name: "Test" } };
 
-    const response = await unreadyFetch(
-      "mock-url",
-      { method: "GET" },
-      {
-        success: successData,
-      }
-    );
+    const response = await unreadyFetch({
+      success: successData,
+    })("mock-url", { method: "GET" });
 
     expect(await response.json()).toEqual(successData);
   });
@@ -38,26 +34,18 @@ describe("unready-fetch", () => {
   test("Return success value with custom status", async () => {
     const successData = { data: { id: 1, name: "Test" } };
 
-    const response = await unreadyFetch(
-      "mock-url",
-      { method: "GET" },
-      {
-        success: successData,
-        status: 201,
-      }
-    );
+    const response = await unreadyFetch({
+      success: successData,
+      status: 201,
+    })("mock-url", { method: "GET" });
 
     expect(response.status).toBe(201);
   });
 
   test("Return error if set http status larger or equeal 400", async () => {
-    const response = await unreadyFetch(
-      "mock-url",
-      { method: "GET" },
-      {
-        status: 400,
-      }
-    );
+    const response = await unreadyFetch({
+      status: 400,
+    })("mock-url", { method: "GET" });
 
     expect(response.status).toBe(400);
     expect(response.ok).toBeFalsy();
@@ -81,13 +69,9 @@ describe("unready-fetch", () => {
   test("Return error if only asigned error", async () => {
     const errorData = { error: "Oops something when wrong !", code: 400 };
 
-    const response = await unreadyFetch(
-      "mock-url",
-      { method: "GET" },
-      {
-        error: errorData,
-      }
-    );
+    const response = await unreadyFetch({
+      error: errorData,
+    })("mock-url", { method: "GET" });
 
     expect(await response.json()).toEqual(errorData);
   });
@@ -95,14 +79,10 @@ describe("unready-fetch", () => {
   test("Return error with custom error data", async () => {
     const errorData = { error: "Oops something when wrong !", code: 400 };
 
-    const response = await unreadyFetch(
-      "mock-url",
-      { method: "GET" },
-      {
-        error: errorData,
-        status: 400,
-      }
-    );
+    const response = await unreadyFetch({
+      error: errorData,
+      status: 400,
+    })("mock-url", { method: "GET" });
 
     expect(response.status).toBe(400);
     expect(response.ok).toBeFalsy();
@@ -119,7 +99,7 @@ describe("unready-fetch with AbortController", () => {
         controller.abort();
       }, 50);
 
-      await unreadyFetch("mock-url", {
+      await unreadyFetch()("mock-url", {
         method: "GET",
         signal: controller.signal,
       });
@@ -143,7 +123,7 @@ describe("unready-fetch with AbortController", () => {
         controller.abort("mock-reason");
       }, 50);
 
-      await unreadyFetch("mock-url", {
+      await unreadyFetch()("mock-url", {
         method: "GET",
         signal: controller.signal,
       });
@@ -156,7 +136,7 @@ describe("unready-fetch with AbortController", () => {
 
   test("Throw an TimeoutError when signal timout is set", async () => {
     try {
-      await unreadyFetch("mock-url", {
+      await unreadyFetch()("mock-url", {
         method: "GET",
         signal: AbortSignal.timeout(50),
       });
