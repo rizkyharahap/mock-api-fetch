@@ -1,3 +1,13 @@
+# [0.2.0](https://github.com/rizkyharahap/unready-fetch/compare/v0.1.1...v0.2.0) (2024-11-28)
+
+
+### Features
+
+* handle signal feature for AbortController and AbortSignal ([06343ab](https://github.com/rizkyharahap/unready-fetch/commit/06343abf8231d72a0496266108e1de39b3bf597e))
+* **unready-axios:** make support for axios ([601ef34](https://github.com/rizkyharahap/unready-fetch/commit/601ef34f0c4d88ec7ffbf2c319ac218a5e132d0b))
+
+
+
 ## [0.1.1](https://github.com/rizkyharahap/unready-fetch/compare/v0.1.0...v0.1.1) (2024-11-16)
 
 
@@ -33,15 +43,6 @@
 ### Bug Fixes
 
 * build wrong export ([05df459](https://github.com/rizkyharahap/unready-fetch/commit/05df459942e31f6419000950074e15759721d783))
-
-
-
-## [0.0.11](https://github.com/rizkyharahap/unready-fetch/compare/v0.0.10...v0.0.11) (2024-11-15)
-
-
-### Bug Fixes
-
-* change name ([17ffcf8](https://github.com/rizkyharahap/unready-fetch/commit/17ffcf86d22ad9441800def6ba610d1ad4b2f3e7))
 
 
 
