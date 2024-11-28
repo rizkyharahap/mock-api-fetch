@@ -1,9 +1,9 @@
-export interface MockData<S = any, E = any> {
+export interface UnreadyFetchMock<S = any, E = any> {
   success?: S;
   error?: E;
   status?: number;
 }
-export interface MockResponse<T = any> {
+export interface UnreadyFetchResponse<T = any> {
   url: string;
   ok: boolean;
   status: number;
@@ -44,7 +44,7 @@ const defaultErrorResponse = {
  * @param {MockData} [mock] - Optional mock data to simulate the API response. If not provided, default mock success and error responses are used.
  * @param {number} [timeout=1000] - Time (in milliseconds) to wait before resolving the promise with the mock response. Defaults to 1000ms (1 second).
  *
- * @returns {fn(input: RequestInfo | URL, init?: RequestInit): Promise<MockResponse>} - A function that simulates a fetch request, returning a promise that resolves to a `MockResponse` object.
+ * @returns {fn(input: RequestInfo | URL, init?: RequestInit): Promise<UnreadyFetchResponse>} - A function that simulates a fetch request, returning a promise that resolves to a `UnreadyFetchResponse` object.
  *
  * @example
  * // Example usage of unreadyFetch
@@ -64,7 +64,7 @@ const defaultErrorResponse = {
 export function unreadyFetch<
   S = typeof defaultSuccessResponse,
   E = typeof defaultErrorResponse
->(mock?: MockData<S, E>, timout: number = 1000) {
+>(mock?: UnreadyFetchMock<S, E>, timout: number = 1000) {
   // Show warning to remind the real API not implemented
   console.warn(
     "Unready fetch used! Please change to real fetch after API is ready!"
@@ -79,12 +79,12 @@ export function unreadyFetch<
    * @param {RequestInfo | URL} input - The resource to fetch. Can be a URL string or a `Request` object.
    * @param {RequestInit} [init] - Optional configuration object for the fetch request. This can include HTTP methods, headers, request body, and an `AbortSignal`.
    *
-   * @returns {Promise<MockResponse>} - A promise that resolves to a simulated `MockResponse` object containing mock data, status, and other response properties.
+   * @returns {Promise<UnreadyFetchResponse>} - A promise that resolves to a simulated `UnreadyFetchResponse` object containing mock data, status, and other response properties.
    */
   return function (
     input: RequestInfo | URL,
     init?: RequestInit
-  ): Promise<MockResponse<E | S>> {
+  ): Promise<UnreadyFetchResponse<E | S>> {
     return new Promise((resolve, reject) => {
       const timeoutId = setTimeout(() => {
         if (
@@ -94,7 +94,7 @@ export function unreadyFetch<
           (!mock?.success && !!mock?.error)
         ) {
           const errData = mock?.error ?? defaultErrorResponse;
-          const errResponse: MockResponse<E> = {
+          const errResponse: UnreadyFetchResponse<E> = {
             url: input.toString(),
             ok: false,
             status: mock?.status ?? 400,
@@ -111,7 +111,7 @@ export function unreadyFetch<
 
         const data = mock?.success ?? defaultSuccessResponse;
 
-        const response: MockResponse<S> = {
+        const response: UnreadyFetchResponse<S> = {
           url: input.toString(),
           ok: true,
           status: mock?.status ?? 200,

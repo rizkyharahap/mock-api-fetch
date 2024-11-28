@@ -1,9 +1,20 @@
 import { AxiosError, type AxiosRequestConfig, CanceledError } from "axios";
 
-export interface MockData<S = any, E = any> {
+export interface UnreadyAxiosMock<S = any, E = any> {
   success?: S;
   error?: E;
   status?: number;
+}
+
+export interface UnreadyAxiosResponse<T = any, D = any> {
+  data: T;
+  status: number;
+  statusText: string;
+  headers: any;
+  config: any & {
+    data?: D;
+  };
+  request?: any;
 }
 
 const defaultSuccessResponse = {
@@ -29,19 +40,8 @@ const defaultErrorResponse = {
   trace_id: "abc123xyz",
 };
 
-export interface UnreadyAxiosResponse<T = any, D = any> {
-  data: T;
-  status: number;
-  statusText: string;
-  headers: any;
-  config: any & {
-    data?: D;
-  };
-  request?: any;
-}
-
 export function unreadyAxios<S = any, E = any>(
-  mock?: MockData<S, E>,
+  mock?: UnreadyAxiosMock<S, E>,
   timeout: number = 1000
 ) {
   return {
