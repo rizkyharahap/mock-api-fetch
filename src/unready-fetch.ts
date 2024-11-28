@@ -1,14 +1,13 @@
-export interface MockData {
-  success?: any;
-  error?: any;
+export interface MockData<S = any, E = any> {
+  success?: S;
+  error?: E;
   status?: number;
 }
-
-export interface MockResponse {
+export interface MockResponse<T = any> {
   url: string;
   ok: boolean;
   status: number;
-  json(): Promise<any>;
+  json(): Promise<T>;
   text(): Promise<string>;
 }
 
@@ -62,7 +61,10 @@ const defaultErrorResponse = {
  * }
  *
  */
-export function unreadyFetch(mock?: MockData, timout: number = 1000) {
+export function unreadyFetch<
+  S = typeof defaultSuccessResponse,
+  E = typeof defaultErrorResponse
+>(mock?: MockData<S, E>, timout: number = 1000) {
   // Show warning to remind the real API not implemented
   console.warn(
     "Unready fetch used! Please change to real fetch after API is ready!"
@@ -82,34 +84,44 @@ export function unreadyFetch(mock?: MockData, timout: number = 1000) {
   return function (
     input: RequestInfo | URL,
     init?: RequestInit
-  ): Promise<MockResponse> {
+  ): Promise<MockResponse<E | S>> {
     return new Promise((resolve, reject) => {
       const timeoutId = setTimeout(() => {
-        let data = mock?.success ?? defaultSuccessResponse;
-
-        const response: MockResponse = {
-          url: input.toString(),
-          ok: true,
-          status: mock?.status ?? 200,
-          json() {
-            return Promise.resolve(data);
-          },
-          text() {
-            return Promise.resolve(JSON.stringify(data));
-          },
-        };
-
         if (
           // Returns error when status is greater than or equal to 400
           (mock?.status && mock.status >= 400) ||
           // Or returns error when mock success not set but mock error is set
           (!mock?.success && !!mock?.error)
         ) {
-          data = mock?.error ?? defaultErrorResponse;
+          const errData = mock?.error ?? defaultErrorResponse;
+          const errResponse: MockResponse<E> = {
+            url: input.toString(),
+            ok: false,
+            status: mock?.status ?? 400,
+            json() {
+              return Promise.resolve(errData as E);
+            },
+            text() {
+              return Promise.resolve(JSON.stringify(errData));
+            },
+          };
 
-          response.ok = false;
-          response.status = mock?.status ?? 400;
+          return resolve(errResponse);
         }
+
+        const data = mock?.success ?? defaultSuccessResponse;
+
+        const response: MockResponse<S> = {
+          url: input.toString(),
+          ok: true,
+          status: mock?.status ?? 200,
+          json() {
+            return Promise.resolve(data as S);
+          },
+          text() {
+            return Promise.resolve(JSON.stringify(data));
+          },
+        };
 
         return resolve(response);
       }, timout);
