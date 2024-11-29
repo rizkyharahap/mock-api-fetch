@@ -1,3 +1,12 @@
+## [0.2.1](https://github.com/rizkyharahap/unready-fetch/compare/v0.2.0...v0.2.1) (2024-11-28)
+
+
+### Bug Fixes
+
+* add export unready-axios and change types names ([048b6f6](https://github.com/rizkyharahap/unready-fetch/commit/048b6f6ffcd3ddd164c157b3146fafc043a5d2d4))
+
+
+
 # [0.2.0](https://github.com/rizkyharahap/unready-fetch/compare/v0.1.1...v0.2.0) (2024-11-28)
 
 
@@ -34,15 +43,6 @@
 ### Bug Fixes
 
 * build wrong export types ([167d57f](https://github.com/rizkyharahap/unready-fetch/commit/167d57f57598191fc29222849b9812cc30e74c3d))
-
-
-
-## [0.0.12](https://github.com/rizkyharahap/unready-fetch/compare/v0.0.11...v0.0.12) (2024-11-15)
-
-
-### Bug Fixes
-
-* build wrong export ([05df459](https://github.com/rizkyharahap/unready-fetch/commit/05df459942e31f6419000950074e15759721d783))
 
 
 
