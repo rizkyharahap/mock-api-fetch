@@ -97,7 +97,7 @@ describe("unready-axios", () => {
   });
 });
 
-describe("unready-fetch with AbortController", () => {
+describe("unready-axios with AbortController", () => {
   test("Throw an CanceledError when controller is aborted", async () => {
     try {
       const controller = new AbortController();
@@ -137,5 +137,69 @@ describe("unready-fetch with AbortController", () => {
 
       throw new Error("Controller not throw CanceledError");
     }
+  });
+});
+
+describe("unready-axios others method", () => {
+  test.each(["get", "delete", "head", "options"] as Array<
+    keyof Pick<
+      ReturnType<typeof unreadyAxios>,
+      "get" | "delete" | "head" | "options"
+    >
+  >)("Return success value on %s method", async (method) => {
+    const response = await unreadyAxios(undefined, 10)[method]("mock-url");
+
+    expect(response).toStrictEqual({
+      config: {
+        headers: {
+          Accept: "application/json, text/plain, */*",
+          "Content-Type": undefined,
+        },
+        method: method.toUpperCase(),
+        url: "mock-url",
+      },
+      data: {
+        code: 200,
+        data: { id: 123, name: "Sample Data" },
+        errors: null,
+        status: "success",
+      },
+      headers: {},
+      request: {},
+      status: 200,
+      statusText: "",
+    });
+  });
+
+  test.each(["post", "put", "patch"] as Array<
+    keyof Pick<ReturnType<typeof unreadyAxios>, "post" | "put" | "patch">
+  >)("Return success value on %s method", async (method) => {
+    const response = await unreadyAxios(undefined, 10)[method]("mock-url", {
+      payload: "mock-payload",
+    });
+
+    expect(response).toStrictEqual({
+      config: {
+        data: {
+          payload: "mock-payload",
+        },
+        headers: {
+          Accept: "application/json, text/plain, */*",
+          "Content-Type": undefined,
+        },
+        method: method.toUpperCase(),
+        url: "mock-url",
+      },
+      data: {
+        code: 200,
+        data: { id: 123, name: "Sample Data" },
+        errors: null,
+        status: "success",
+      },
+      headers: {},
+      request: {},
+      status: 200,
+      statusText: "",
+    });
   });
 });
