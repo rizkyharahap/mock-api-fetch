@@ -1,3 +1,17 @@
+# [0.3.0](https://github.com/rizkyharahap/unready-fetch/compare/v0.2.1...v0.3.0) (2024-11-29)
+
+
+### Bug Fixes
+
+* fix build on esm modules and add optional peerDependenciesMeta for axios ([bb01fc2](https://github.com/rizkyharahap/unready-fetch/commit/bb01fc247e987d1aa919454726c2cd80d58414fb))
+
+
+### Features
+
+* **unready-axios:** add support for another axios methods ([9dac4b9](https://github.com/rizkyharahap/unready-fetch/commit/9dac4b96dfa621a6147ae1a43fde7a5de70253df))
+
+
+
 ## [0.2.1](https://github.com/rizkyharahap/unready-fetch/compare/v0.2.0...v0.2.1) (2024-11-28)
 
 
@@ -34,15 +48,6 @@
 * add console warning for remind user its using unready-fetch not real fetch ([f242fc8](https://github.com/rizkyharahap/unready-fetch/commit/f242fc8a90d81f929d2e6900381e576bf68f2948))
 * add default response success and error ([2c2a271](https://github.com/rizkyharahap/unready-fetch/commit/2c2a2710df8cc0c92d61f96adf2a445967ce966a))
 * add function response.text() which returning string data ([7d6f6a1](https://github.com/rizkyharahap/unready-fetch/commit/7d6f6a19520716eb2bd0807f8cde9561f667bf88))
-
-
-
-## [0.0.13](https://github.com/rizkyharahap/unready-fetch/compare/v0.0.12...v0.0.13) (2024-11-15)
-
-
-### Bug Fixes
-
-* build wrong export types ([167d57f](https://github.com/rizkyharahap/unready-fetch/commit/167d57f57598191fc29222849b9812cc30e74c3d))
 
 
 
