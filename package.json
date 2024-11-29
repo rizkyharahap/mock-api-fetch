@@ -42,6 +42,11 @@
   "peerDependencies": {
     "axios": "^1.6.1"
   },
+  "peerDependenciesMeta": {
+    "axios": {
+      "optional": true
+    }
+  },
   "devDependencies": {
     "@types/jest": "^29.5.14",
     "axios": "^1.7.8",
